@@ -1,0 +1,82 @@
+{
+  "allowHttpBackend": false,
+  "backendCommand": "node backend -c \"zix28apr6pylsb3gqhnowblo9jplza\" -s \"jCN/B5U9zIlW4Gu3vsxtFTDZCAQ9bPqB9oYyptrgDxI=\"",
+  "backendFolderName": "extension-getting-started\\services",
+  "certificateExceptions": [],
+  "extensionViews": [
+    {
+      "id": "1",
+      "label": "",
+      "channelId": "532152067",
+      "configurationAnchor": "video_overlay",
+      "displayChannelName": "twitchball_blue",
+      "type": "video_overlay",
+      "features": {
+        "isBitsEnabled": false,
+        "isChatEnabled": false,
+        "isSubscriptionStatusAvailable": false
+      },
+      "linked": false,
+      "linkedUserId": "",
+      "mode": "viewer",
+      "isPopout": false,
+      "role": "Broadcaster",
+      "orientation": "Portrait",
+      "frameSize": {
+        "width": 1280,
+        "height": 720
+      }
+    }
+  ],
+  "manifest": {
+    "anchor": "video_overlay",
+    "assetUrls": [],
+    "authorName": "TwitchBall",
+    "bitsEnabled": false,
+    "canInstall": true,
+    "configUrl": "http://localhost:8080/config.html",
+    "configurationLocation": "none",
+    "description": "Control your TwitchBall character through this video overlay",
+    "eulaTosUrl": "",
+    "hasChatSupport": false,
+    "iconUrl": "",
+    "iconUrls": {},
+    "id": "zix28apr6pylsb3gqhnowblo9jplza",
+    "installationCount": -42,
+    "liveConfigUrl": "",
+    "name": "StreamBallOverlay",
+    "panelHeight": 0,
+    "privacyPolicyUrl": "",
+    "requestIdentityLink": false,
+    "requiredBroadcasterAbilities": [],
+    "screenshotUrls": [],
+    "sku": "",
+    "state": "Testing",
+    "subscriptionsSupportLevel": "none",
+    "summary": "Control your TwitchBall character through this video overlay",
+    "supportEmail": "clement.fossez@gmx.com",
+    "vendorCode": "",
+    "version": "0.0.1",
+    "viewerSummary": "",
+    "viewerUrl": "",
+    "viewerUrls": {
+      "videoOverlay": "http://localhost:8080/video_overlay.html"
+    },
+    "views": {
+      "videoOverlay": {
+        "viewerUrl": "http://localhost:8080/video_overlay.html",
+        "canLinkExternalContent": false
+      },
+      "config": {
+        "viewerUrl": "http://localhost:8080/config.html",
+        "canLinkExternalContent": false
+      }
+    },
+    "whitelistedConfigUrls": [],
+    "whitelistedPanelUrls": []
+  },
+  "frontendCommand": "",
+  "frontendFolderName": "extension-getting-started\\public",
+  "name": "StreamBallOverlay",
+  "version": 1
+}

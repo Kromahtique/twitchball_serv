@@ -1,0 +1,20 @@
+{
+  "name": "twitchball",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Clément Fossez <clement.fossez@quickspin.com> (http://www.quickspin.com)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.17.1",
+    "http": "0.0.1-security",
+    "tmi.js": "~1.5.0",
+    "twitch": "~4.0.9",
+    "twitch-chat-client": "~4.0.9",
+    "websocket": "~1.0.31",
+    "xmlhttprequest": "~1.8.0"
+  }
+}
