@@ -78,7 +78,7 @@ function createWebsocket() {
   twitch.rig.log("Attempt connection...");
 
 
-  socket = io('http://localhost:8082/');
+  socket = io('https://twitchball.herokuapp.com:8082');
 
   socket.on('connect', (s) => {
 	  socket.emit('identify', {

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Simple Hello World Twitch Extension",
   "main": "index.js",
+  “start”: “npm start”,
   "scripts": {
     "cert": "node bin/generate_cert.js server",
     "start": "node services/backend"
