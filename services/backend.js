@@ -78,6 +78,7 @@ io.on('connection', (socket) => {
 
 });
 
-http.listen(8082, () => {
-  console.log('listening on *:8082');
+const port = process.env.PORT || 8082;
+http.listen(port, () => {
+  console.log(`Server listening on *:${port}`);
 });
