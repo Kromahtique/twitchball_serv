@@ -4,12 +4,6 @@ let username = '';
 let ws;
 
 let id = "";
-let socket;
-
-let originPos = {
-	x: 0,
-	y: 0
-};
 
 const twitch = window.Twitch.ext;
 
@@ -48,7 +42,6 @@ twitch.onContext(function (context) {
 });
 
 twitch.onAuthorized(function (auth) {
-  twitch.rig.log("GOT THE AUTH");
   // save our credentials
   token = auth.token;
   tuid = auth.userId;
@@ -75,23 +68,23 @@ function logSuccess(hex, status) {
 }
 
 function createWebsocket() {
-  twitch.rig.log("Attempt connection...");
+    if (ws) {
+      return;
+    }
+    ws = new WebSocket('ws://localhost:8082/', 'echo-protocol');
 
+    ws.onopen = function(event) {
+      twitch.rig.log('CONNECTED');
+      $('#send').removeAttr('disabled');
+    };
 
-  socket = io('https://twitchball.herokuapp.com');
+    ws.onerror = function(error) {
+      console.log(error.message);
+    };
 
-  socket.on('connect', (s) => {
-	  socket.emit('identify', {
-	    name: "Kromah",
-	    id: id,
-	    clientType: "twitchClient",
-	    team: "blue"
-	  });
-
-  	$('#send').removeAttr('disabled');
-  });
-
+  twitch.rig.log('ws://localhost:8082/');
 }
+
 
 $(function () {
   // when we click the cycle button
@@ -100,30 +93,12 @@ $(function () {
     if(!token) { return twitch.rig.log('Not authorized'); }
 
     createWebsocket();
-    //ws.send(JSON.stringify({command: "join", id: id}))
+    ws.send(JSON.stringify({command: "join", id: id}))
     // $.ajax(requests.auth);
   });
 
   $('#send').click(function () {
     twitch.rig.log(token);
-    //ws.send(JSON.stringify({command: "move", id: id, dir:{x: 0, y: 0}}));
-    
+    ws.send(JSON.stringify({command: "move", id: id, dir:{x: 0, y: 0}}));
   });
-
-
-  $('body').on('mousedown', (e) => {
-  	originPos.x = e.screenX;
-  	originPos.y = e.screenY;
-  });
-
-  $('body').on('mouseup', (e) => {
-  	socket.emit('move', {
-    	id: id,
-    	dir: {
-    		x: originPos.x - e.screenX,
-    		y: originPos.y - e.screenY
-    	}
-    });
-  });
-
 });
